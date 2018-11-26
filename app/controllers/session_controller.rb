@@ -5,7 +5,8 @@ class SessionController < ApplicationController
   end 
   
   post '/sessions' do 
-    session[:username]
+    session[:username] = params[:username]
+    redirect "/restaurants"
   end 
   
 end 
