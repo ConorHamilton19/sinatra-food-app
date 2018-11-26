@@ -9,4 +9,8 @@ class SessionController < ApplicationController
     redirect "/restaurants"
   end 
   
+  get '/logout' do 
+    session.clear
+  end 
+  
 end 

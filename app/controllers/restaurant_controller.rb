@@ -1,7 +1,17 @@
 class RestaurantController < ApplicationController
   
   get '/restaurants' do 
-    erb :"/restaurants/index"
+    if logged_in?
+      @restaurants = Restaurant.all
+      erb :"/restaurants/index"
+  end 
+  
+  get '/restaurants/new' do 
+    if logged_in?
+      erb :"/resaurants/new"
+    else 
+      redirect "/login"
+    end 
   end 
   
   

@@ -1,1 +1,7 @@
-<h1>Show all restaurants</h1>
+<h1>Here are all your saved restaurants...</h1>
+
+<% @restaurants.each do |restaurant|%>
+<ol>
+  <li><%= resturant.name %></li>
+</ol>
+<% end %>
