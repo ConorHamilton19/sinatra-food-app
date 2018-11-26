@@ -1,7 +1,13 @@
 
 <p> <%=@restaurant.name %> </p>
  
-<p> <%=@restaurant.meals %> </p>
+<p> 
+<ul>
+  <%@restaurant.meals.each do |meal| %> 
+  <li><%=meal%></li>
+  <%end%> 
+</ul>
+</p>
 
 <form method="post" action="/restaurant/<%=@restaurant.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
