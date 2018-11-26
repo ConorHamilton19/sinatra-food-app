@@ -9,3 +9,5 @@ use Rack::MethodOverride
 run ApplicationController
 use SessionController
 use RestaurantController
+use MealController
+use UserController
