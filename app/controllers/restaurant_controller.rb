@@ -23,7 +23,7 @@ class RestaurantController < ApplicationController
         redirect "/restaurants/new"
       else 
         @restaurant = Restaurant.create(name: params[:name])
-        current_user.restaurant << @restaurant
+        current_user.restaurants << @restaurant
         @restaurant.save
         redirect "/restaurant/#{@restaurant.id}"
      end 
@@ -31,6 +31,29 @@ class RestaurantController < ApplicationController
       redirect "/login"
     end 
   end 
+  
+  get '/restaurant/:id' do
+    if logged_in?
+      @restaurant = Restaurant.find_by_id(params[:id])
+      erb :'restaurants/show'
+    else
+      redirect '/login'
+    end 
+  end 
+  
+  delete '/tweets/:id/delete' do
+    if logged_in?
+      @restaurant = Restaurant.find_by_id(params[:id])
+      if @restaurant && @restaurant.user == current_user
+        @restaurant.delete
+        redirect '/restaurants'
+      else
+        redirect '/restaurants'
+      end
+    else
+      redirect '/login'
+    end
+  end
   
   
 end 

@@ -1,0 +1,9 @@
+
+<p> <%=@restaurant.name %> </p>
+ 
+<p> <%=@restaurant.meals %> </p>
+
+<form method="post" action="/restaurant/<%=@restaurant.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Resaurant">
+</form>
