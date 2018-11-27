@@ -5,12 +5,18 @@ class SessionController < ApplicationController
   end 
   
   post '/sessions' do 
-    session[:username] = params[:username]
-    redirect "/restaurants"
+    @user = User.find_by(:username => params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:username] = params[:username]
+      redirect "/restaurants"
+    else 
+      redirect "/signup"
+    end
   end 
   
   get '/logout' do 
     session.clear
+    redirect "/login"
   end 
   
 end 
