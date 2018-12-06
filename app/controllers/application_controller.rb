@@ -22,6 +22,10 @@ class ApplicationController < Sinatra::Base
     def current_user
       @current_user = User.find_by(id: session[:user_id]) if session[:user_id]
     end
+    
+    def current_restaurant
+      @current_restaurant = Restaurant.find_by(name: params[:restaurant_name])
+    end 
   end 
   
 end 

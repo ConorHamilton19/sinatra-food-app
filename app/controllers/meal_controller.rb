@@ -27,7 +27,7 @@ class MealController < ApplicationController
         redirect "/meals/new"
       else 
         @meal = Meal.create(name: params[:name], ingredients: params[:ingredients])
-        current_user.meals << @meal
+        current_restaurant.meals << @meal
         @meal.save
         redirect "/meal/#{@meal.id}"
      end 
