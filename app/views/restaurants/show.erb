@@ -1,5 +1,5 @@
 
-<p> <%=@restaurant.name %> </p>
+<h3> <%=@restaurant.name %> </h3>
  
 <p> 
 <ul>
@@ -11,7 +11,9 @@
 
 <p><a href="/meals/new">Create new meal..</a>
   </p>
-
+  
+<p><a href="/restaurants">See all restaurants..</a>
+  </p>
 
 
 <form method="post" action="/restaurant/<%=@restaurant.id%>/delete">
