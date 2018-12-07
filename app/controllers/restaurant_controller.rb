@@ -23,7 +23,7 @@ class RestaurantController < ApplicationController
   
   post '/restaurants' do 
     if logged_in?
-      if params[:name] == ""
+      if params[:name] == "" || !!Restaurant.find_by(name: params[:name])
         redirect "/restaurants/new"
       else 
         @restaurant = Restaurant.create(name: params[:name])
