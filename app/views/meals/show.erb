@@ -1,12 +1,14 @@
 
-<h1>Meal added to <%=@meal.restaurant.name%></h1>
+<h1>Meal at <%=@meal.restaurant.name%></h1>
  
 <p> 
 <h3>Meal Name:</h3>
   <%=@meal.name%>
 </p>
 
-<p> <h3>Meal Ingredients</h3><%=@meal.ingredients%></p>
+<p> <h3>Meal Ingredients</h3> <%=@meal.ingredients%></p>
+
+<p><a href="/restaurant/<%=@meal.restaurant.id%>">Back to Restaurant </a></p>
 
 <form method="post" action="/meal/<%=@meal.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">

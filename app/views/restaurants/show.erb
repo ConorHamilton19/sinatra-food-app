@@ -4,7 +4,7 @@
 <p> 
 <ul>
   <%@restaurant.meals.each do |meal| %> 
-  <li><%=meal%></li>
+  <li><a href="/meal/<%=meal.id%>"><%= meal.name %></li>
   <%end%> 
 </ul>
 </p>
