@@ -2,12 +2,8 @@
 
  
 <p> 
-<ul>
-  <%@meals.each do |meal| %> 
-  <li><%=meal%>
-      <p><%=meal.ingredients%></p></li>
-  <%end%> 
-</ul>
+
+  <%=@meal%>
 </p>
 
 <form method="post" action="/meal/<%=@meal.id%>/delete">
