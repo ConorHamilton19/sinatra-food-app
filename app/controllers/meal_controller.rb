@@ -60,4 +60,28 @@ class MealController < ApplicationController
     end
   end
   
+  
+  get "/meals/:id/edit" do 
+    if logged_in?
+      @meal = Meal.find_by_id(params[:id])
+      erb :"/meals/edit"
+    else 
+      redirect '/login'
+    end
+  end
+  
+  patch "/meals/:id" do 
+    if logged_in?  
+      if params[:name] == "" || params[:ingredients] == ""
+       redirect "/meals/#{params[:id]}/edit"
+      else 
+        @meal = Meal.find_by_id(params[:id])
+        @meal.update(name: params[:name], ingredients: params[:ingredients])
+        redirect "/meals/#{@meal.id}"
+     end 
+    else 
+      redirect "/login"
+    end 
+  end 
+  
 end 

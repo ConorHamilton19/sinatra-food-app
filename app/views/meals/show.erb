@@ -10,6 +10,8 @@
 
 <p><a href="/restaurant/<%=@meal.restaurant.id%>">Back to Restaurant </a></p>
 
+<a href="/meals/<%=@meal.id%>/edit">Edit Meal</a>
+
 <form method="post" action="/meal/<%=@meal.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Meal">
