@@ -7,7 +7,7 @@ class SessionController < ApplicationController
   post '/login' do 
     @user = User.find_by(:username => params[:username])
     if @user && @user.authenticate(params[:password])
-      session[:username] = params[:username]
+      session[:user_id] = @user.id
       redirect "/restaurants"
     else 
       redirect "/signup"
