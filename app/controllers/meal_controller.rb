@@ -77,7 +77,7 @@ class MealController < ApplicationController
       else 
         @meal = Meal.find_by_id(params[:id])
         @meal.update(name: params[:name], ingredients: params[:ingredients])
-        redirect "/meals/#{@meal.id}"
+        redirect "/meal/#{@meal.id}"
      end 
     else 
       redirect "/login"

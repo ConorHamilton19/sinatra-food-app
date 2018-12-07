@@ -3,6 +3,6 @@
 <form method="post" action="/meals/<%=@meal.id%>">
   <input type="hidden" id="hidden" name="_method" value="patch">
   <input type="text" name ="name" value="<%= @meal.name %>">
-  <input type="text" name ="name" value="<%= @meal.ingredients %>">
+  <input type="text" name ="ingredients" value="<%= @meal.ingredients %>">
   <input type="submit" value="Edit">
 </form>
