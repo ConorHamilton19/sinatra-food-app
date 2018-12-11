@@ -16,7 +16,7 @@ class SessionController < ApplicationController
   
   get '/logout' do 
     session.clear
-    redirect "/login"
+    erb :"/index"
   end 
   
 end 

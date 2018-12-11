@@ -72,7 +72,7 @@ class MealController < ApplicationController
   
   get "/meals/:id/edit" do 
     if logged_in?
-      @meal = Meal.find_by_id(params[:id])
+      @meal = current_user.meals.find_by_id(params[:id])
       erb :"/meals/edit"
     else 
       redirect '/login'
