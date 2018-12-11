@@ -5,3 +5,7 @@ Visit the web application and signup/login using an individual username and pass
 Navigate the website using the links and text forms to experience what the web application has to offer. 
 
 Make sure to logout when finished. 
+
+License- https://opensource.org/licenses/MIT
+
+Contributing- ??
