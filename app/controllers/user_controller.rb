@@ -3,7 +3,7 @@ class UserController < ApplicationController
   
   get '/signup' do 
    if !logged_in?
-      erb :"/users/signup"
+      erb :"/users/signup", :layout => :layout_login
    else
       redirect :"/restaurants"
     end 

@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
   
   get '/login' do 
-    erb :"sessions/login"
+    erb :"sessions/login", :layout => :layout_login
   end 
   
   post '/login' do 
