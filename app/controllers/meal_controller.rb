@@ -27,7 +27,6 @@ class MealController < ApplicationController
         redirect "/meals/new"
       else 
        @meal = Meal.create(name: params[:name], ingredients: params[:ingredients])
-       @meal.save 
        
        @restaurant = current_user.restaurants.find_by(name: params[:restaurant_name])
        
@@ -72,8 +71,11 @@ class MealController < ApplicationController
   
   get "/meals/:id/edit" do 
     if logged_in?
-      @meal = current_user.meals.find_by_id(params[:id])
+      if @meal = current_user.meals.find_by_id(params[:id])
       erb :"/meals/edit"
+      else
+        redirect '/meals'
+      end 
     else 
       redirect '/login'
     end
@@ -85,9 +87,13 @@ class MealController < ApplicationController
        redirect "/meals/#{params[:id]}/edit"
       else 
         @meal = Meal.find_by_id(params[:id])
-        @meal.update(name: params[:name], ingredients: params[:ingredients])
-        redirect "/meal/#{@meal.id}"
-     end 
+          if @meal && @meal.restaurant.user == current_user
+             @meal.update(name: params[:name], ingredients: params[:ingredients])
+             redirect "/meal/#{@meal.id}"
+          else
+            redirect "/meals"
+          end 
+      end 
     else 
       redirect "/login"
     end 

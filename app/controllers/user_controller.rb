@@ -1,3 +1,4 @@
+require "pry"
 class UserController < ApplicationController 
   
   get '/signup' do 
@@ -10,7 +11,7 @@ class UserController < ApplicationController
   
   post '/signup' do 
      if 
-       params[:username] == "" || params[:password] == ""
+       params[:username] == "" || params[:password] == "" || User.find_by(username: params[:username])
        redirect "/signup"
      else
        @user = User.create(username: params[:username], password: params[:password])
